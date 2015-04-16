@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -71,7 +71,7 @@
 
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* dns-sd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "dns-sd.c"; sourceTree = "<group>"; };
-		8DD76F7E0486A8DE00D96B5E /* dns-sd */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "compiled.mach-o.executable"; path = "dns-sd"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DD76F7E0486A8DE00D96B5E /* dns-sd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "dns-sd"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF1B691106711383002304DD /* DNS Service Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DNS Service Browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF1B6914067114AF002304DD /* DNSServiceBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DNSServiceBrowser.m; sourceTree = "<group>"; };
 		FF1E351306711B5C003DD5BC /* DNS Service Registration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DNS Service Registration.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -248,10 +248,19 @@
 /* Begin PBXProject section */
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+			};
 			buildConfigurationList = 21D91E8D0B12A03D003981D9 /* Build configuration list for PBXProject "DNS-SD" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 08FB7794FE84155DC02AAC07 /* mDNS */;
 			projectDirPath = "";
+			projectRoot = "";
 			targets = (
 				FFF520490671177900DA3D49 /* Build All */,
 				8DD76F740486A8DE00D96B5E /* dns-sd */,
@@ -432,6 +441,7 @@
 		21D91E820B12A03D003981D9 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUGGING_SYMBOLS = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -464,6 +474,7 @@
 		21D91E830B12A03D003981D9 /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -491,6 +502,7 @@
 		21D91E840B12A03D003981D9 /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
@@ -515,6 +527,7 @@
 		21D91E860B12A03D003981D9 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUGGING_SYMBOLS = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -547,6 +560,7 @@
 		21D91E870B12A03D003981D9 /* Deployment */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -574,6 +588,7 @@
 		21D91E880B12A03D003981D9 /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
@@ -658,7 +673,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = macosx;
 			};
 			name = Development;
 		};
@@ -666,7 +681,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = macosx;
 			};
 			name = Deployment;
 		};
@@ -674,7 +689,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT = macosx;
 			};
 			name = Default;
 		};
