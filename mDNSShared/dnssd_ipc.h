@@ -85,6 +85,7 @@ extern char *win32_strerror(int inErrorCode);
 #   ifndef MDNS_UDS_SERVERPATH
 #       define MDNS_UDS_SERVERPATH  "/var/run/mDNSResponder"
 #   endif
+#   define MDNS_UDS_SERVERPATH_ENVVAR "DNSSD_UDS_PATH"
 #   define LISTENQ              100
 // longest legal control path length
 #   define MAX_CTLPATH          256
@@ -135,7 +136,9 @@ typedef enum
     port_mapping_request,   // New in Leopard and B4W 2.0
     addrinfo_request,
     send_bpf,               // New in SL
+    getpid_request,
     release_request,
+    connection_delegate_request,
 
     cancel_request = 63
 } request_op_t;

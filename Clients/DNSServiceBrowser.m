@@ -606,9 +606,9 @@ InterfaceIndexToName(uint32_t interface, char *interfaceName)
 
 @implementation ServiceController : NSObject
 {
-	/*DNSServiceRef        fServiceRef;
+	DNSServiceRef        fServiceRef;
 	CFSocketRef          fSocketRef;
-	CFRunLoopSourceRef   fRunloopSrc;*/
+	CFRunLoopSourceRef   fRunloopSrc;
 }
 
 

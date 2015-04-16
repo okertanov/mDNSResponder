@@ -17,7 +17,7 @@
 
 #include <CoreFoundation/CoreFoundation.h>
 #include <CoreFoundation/CFXPCBridge.h>
-#include <dns_sd.h>
+#include "dns_sd.h"
 #include <UserEventAgentInterface.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -747,6 +747,16 @@ void ServiceBrowserCallback (DNSServiceRef sdRef,
     }
 
     CFStringRef cfServiceName = CFStringCreateWithCString(NULL, serviceName, kCFStringEncodingUTF8);
+    if (cfServiceName == NULL)
+    {
+        static int msgCount = 0;
+        if (msgCount < 1000)
+        {
+            asl_log(NULL, NULL, ASL_LEVEL_INFO, "%s:%s Can not create CFString for serviceName %s", sPluginIdentifier, __FUNCTION__, serviceName);
+            msgCount++;
+        }
+        return;
+    }
 
     if (flags & kDNSServiceFlagsAdd)
     {
@@ -855,8 +865,11 @@ NetBrowserInfo* NetBrowserInfoCreate(CFStringRef serviceType, CFStringRef domain
     if (domain)
     {
         CFIndex domainSize = CFStringGetMaximumSizeForEncoding(CFStringGetLength(domain), kCFStringEncodingUTF8);
-        cDomain = calloc(serviceSize, 1);
-        success = success && CFStringGetCString(domain, cDomain, domainSize, kCFStringEncodingUTF8);
+        if (domainSize)
+        {
+            cDomain = calloc(domainSize, 1);
+            success = success && CFStringGetCString(domain, cDomain, domainSize, kCFStringEncodingUTF8);
+        }
     }
 
     if (!success)
